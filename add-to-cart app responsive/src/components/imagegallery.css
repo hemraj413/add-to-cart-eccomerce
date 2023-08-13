@@ -1,0 +1,23 @@
+.image-gallery{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.main-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-img img{
+    max-height: 60vh;
+    max-width: 70%;
+    border-radius: 20px;
+
+}
+.thumnails img{
+    max-height: 100px;
+    border-radius: 10px;
+
+}

@@ -1,0 +1,130 @@
+main{
+    max-width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main div{
+    padding: 1%;
+}
+
+.product-detail{
+    max-width: 40%;
+    margin:0;
+
+}
+
+h3{
+    color: rgb(241, 104, 0);
+    margin: 0;
+}
+.product-detail div{
+    display: flex;
+
+}
+.product-title{
+    font-size: 3vw;
+    margin-top: 0;
+}
+.shoe-details{
+    font-size: 20px;
+    margin: 0;
+}.price-details{
+    display: flex;
+    align-items: center;
+}
+.price{
+    font-size: 25px;
+    margin: 0;
+}
+.discount{
+    margin: 0 1vw;
+    color: rgb(241, 104, 0);
+    font-size: 20px;
+    padding: 2%;
+    border-radius: 10px;
+    background-color:rgb(236, 216, 200) ;
+}
+.previous-price{
+    margin: -1vh 0 2vh 1vw;
+    font-size: 20px;
+    opacity: .3;
+}
+.btn-part{
+    background-color: #f0f0f0;
+    margin:0 2vw 0 0;
+    border-radius: 15px;
+    max-height: 8vh;
+    display: flex;
+    align-items: center;
+}
+.btn-part button{
+    border: none;
+    padding: 0 20px;
+    background-color: #f0f0f0;
+    color: rgb(241, 104, 0);
+    font-size: 18px;
+    cursor: pointer;
+
+}
+.btn-part p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.add-to-cart{
+    background-color: rgb(241, 104, 0);
+    border: none;
+    border-radius: 10px;
+    padding: 0 3vw;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+.add-to-cart span{
+    color: #fff;
+    margin-left: 1rem;
+
+}
+
+
+
+@media screen  and (max-width:1100px){
+   
+    main{
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+    .main-img{
+       
+        margin: 0 auto;
+
+    }
+    .thumnails{
+        display: none;
+
+    }
+    .product-detail{
+        max-width: 80%;
+    }
+    .product-title{
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:600px){
+    .main-img{
+        transform: scale(1);
+        margin: 10% auto;
+    }
+    .shoe-details{
+        font-size: 13px;
+    }
+    .add-to-cart{
+        font-size: 15px;
+    }
+    
+}
