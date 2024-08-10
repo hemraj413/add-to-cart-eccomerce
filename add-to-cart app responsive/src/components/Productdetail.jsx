@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Productdetail.css'
 import { Navbar } from './Navbar'
 import { ImageGallery } from './ImageGallery'
 
 export const Productdetail = () => {
     const[price,setPrice] = useState(0)
-    const[selectedImage,setSelectedImage] = useState(0)
+    const[selectedImage] = useState(0)
     const[cartItem,setCartItem] = useState(null)
     const[buyNum, setBuyNum] = useState(0)
+    const[ProductPrice,setProductPrice] = useState(0)
+    const[discount,setDiscount] = useState(0)
+    const[buyProduuct,setBuyProduct] = useState(0)
     
     const images = [
         { thumbnailUrl: './images/image-product-1-thumbnail.jpg', url: './images/image-product-1.jpg' },
@@ -22,8 +25,10 @@ export const Productdetail = () => {
         else{
             
             setCartItem(`Fall limited sneakers`)
-            setPrice(buyNum * 125)
+            setPrice(buyNum * Math.ceil(ProductPrice-ProductPrice*discount/100) )
+            setBuyProduct(buyNum)
         }
+        setBuyNum(0)
       }
       function deleteCart(){
         setCartItem(null)
@@ -41,9 +46,14 @@ export const Productdetail = () => {
         }
       
     }
+
+    useEffect(()=>{
+      setProductPrice(Math.ceil(Math.random()*500+100))
+      setDiscount(Math.ceil(Math.random()*50))
+    },[])
   return (
     <>
-     <Navbar cartItem={cartItem} itemImg={images[selectedImage].thumbnailUrl}  itemDetail={cartItem} price={price} deleteCart={deleteCart} />
+     <Navbar cartItem={cartItem} itemImg={images[selectedImage].thumbnailUrl}  itemDetail={cartItem} price={price} deleteCart={deleteCart} buynum={buyProduuct}/>
 
     <main>
 <ImageGallery images={images} />
@@ -53,9 +63,9 @@ export const Productdetail = () => {
     <h1 className='product-title'>Fall Limited Edition Sneakers</h1>
     <p className='shoe-details'>These low-profile Sneakers are your perfect casual wear companion. Featuring a durablerubber outer sole, they'll stand everything the weather can offer.</p>
     <div className="price-details">
-        <h4 className='price'> $125.00</h4><h5 className='discount'>50%</h5>
+        <h4 className='price'> ${Math.ceil(ProductPrice-ProductPrice*discount/100)}</h4><h5 className='discount'>{discount}%</h5>
     </div>
-    <h4 className="previous-price"><del>$250</del></h4>
+    <h4 className="previous-price"><del>${ProductPrice}</del></h4>
     <div className="buy-product">
         <div className="btn-part">
         <button onClick={subNumber}>-</button>

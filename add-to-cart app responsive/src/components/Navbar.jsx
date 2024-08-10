@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 
-export const Navbar = ({cartItem, itemImg, itemDetail,price, deleteCart}) => {
+export const Navbar = ({cartItem, itemImg, itemDetail,price, deleteCart,buynum}) => {
   const[isCartOpen,setIsCartOpen] = useState(false)
   const[isToggle,setIsToggle] = useState(false)
 
@@ -40,8 +40,8 @@ export const Navbar = ({cartItem, itemImg, itemDetail,price, deleteCart}) => {
       <div className="product-cart">
       <img src={itemImg} alt='' height="80px" style={{borderRadius:"10px"}}/>
         <div className="product-cart-detail">
-      <p style={{padding:"0",margin:"0", whiteSpace:"nowrap"}}>{itemDetail}</p>
-      <span style={{fontSize:"1vw", fontWeight:"600"}}> total price: {price}</span>
+      <p style={{padding:"0",margin:"0", whiteSpace:"nowrap"}}>{itemDetail} x {buynum}</p>
+      <span style={{fontSize:"1vw", fontWeight:"600"}}> total price: ${price}</span>
       
       </div>
      
